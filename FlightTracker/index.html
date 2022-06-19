@@ -44,10 +44,16 @@
     for (let i = 0; i < flightData.length; i++) {
       const dataPoint = flightData[i];
 
+      var pointColor = Cesium.Color.RED;
+      if (dataPoint.height <= 0) {
+        // if on ground, Orange point colour
+        pointColor = Cesium.Color.DARKORANGE;
+      }
+
       viewer.entities.add({
         description: `Location: (${dataPoint.longitude}, ${dataPoint.latitude}, ${dataPoint.height})`,
         position: Cesium.Cartesian3.fromDegrees(dataPoint.longitude, dataPoint.latitude, dataPoint.height),
-        point: { pixelSize: 10, color: Cesium.Color.RED }
+        point: { pixelSize: 10, color: pointColor }
       });
     }
 
