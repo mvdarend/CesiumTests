@@ -1,2 +1,2 @@
 # CesiumTests
-Playing arounf with cesium.js
+Playing around with cesium.js
